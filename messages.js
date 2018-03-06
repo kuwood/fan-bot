@@ -1,14 +1,15 @@
 const messages = [
-  "Wow that was awesome!",
+  "Wow ezpkk this stream is awesome!",
   "I friggin love this stream",
   "hell yeahhh keep it up!",
   "I cant wait for this stream to blow up",
   "Ezpkk always comes with the top quality frags",
   "lovin the vibe here",
-  "wowwww so sick",
+  "yall better spread the word on this top notch content",
   "keep grindin, keep your head in the game",
-  "Eyyyyy! THERE IT IS EZPKK",
-  "Hell yeah, homebase goes hard"
+  "EZPK, the hardest working streamer in the game!"
 ];
+
+// should all be relative to how cool/good the fan or the stream is
 
 module.exports = messages;
