@@ -14,7 +14,7 @@ class FanHandler {
     const options = {headers: {"Client-ID": process.env.TWITCH_CLIENT_ID}};
     axios.get(`https://api.twitch.tv/helix/streams?user_id=${channelId}`, options)
       .then(res => {
-        if (res.data && res.data.live) {
+        if (res.data[0] && res.data[0].live) {
           console.log('Streamer is live!');
           this.connectClient();
           this.live = true;
