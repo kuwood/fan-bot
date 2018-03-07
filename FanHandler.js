@@ -64,18 +64,18 @@ class FanHandler {
   createMessageTimeout(ms) {
     this.messageTimeout = setTimeout(() => {
       this.sendRandomMessage();
-      const FOUR_MINUTES_IN_SECONDS = 240;
       const TEN_MINUTES_IN_SECONDS = 600;
-      const newTimeoutMs = randomMinRange(FOUR_MINUTES_IN_SECONDS, TEN_MINUTES_IN_SECONDS);
+      const TWENTY_MINUTES_IN_SECONDS = 1200;
+      const newTimeoutMs = randomMinRange(TEN_MINUTES_IN_SECONDS, TWENTY_MINUTES_IN_SECONDS);
       this.createMessageTimeout(newTimeoutMs);
     }, ms);
   }
 
   startMessenger() {
     console.log('Starting messenger');
-    const FOUR_MINUTES_IN_SECONDS = 240;
+    const TWENTY_MINUTES_IN_SECONDS = 1200;
     const TEN_MINUTES_IN_SECONDS = 600;
-    const newTimeoutMs = randomMinRange(FOUR_MINUTES_IN_SECONDS, TEN_MINUTES_IN_SECONDS);
+    const newTimeoutMs = randomMinRange(TEN_MINUTES_IN_SECONDS, TWENTY_MINUTES_IN_SECONDS);
     this.createMessageTimeout(newTimeoutMs);
   }
 
