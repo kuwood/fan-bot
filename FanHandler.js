@@ -18,7 +18,6 @@ class FanHandler {
       .then(res => {
         if (res.data.data[0] && res.data.data[0].type === "live") {
           console.log('Streamer is live!');
-          console.log(res.data.data[0]);
           if (!this.connected) {
             this.client.connect();
           }
@@ -37,8 +36,8 @@ class FanHandler {
   startLiveCheck() {
     console.log('Starting live check.')
     this.liveCheck();
-    const TWO_MINUTES_IN_MS = 120000;
-    this.liveCheckInterval = setInterval(() => {this.liveCheck()}, TWO_MINUTES_IN_MS);
+    const ONE_MINUTE_IN_MS = 60000;
+    this.liveCheckInterval = setInterval(() => {this.liveCheck()}, ONE_MINUTE_IN_MS);
   }
 
   stopLiveCheck() {
