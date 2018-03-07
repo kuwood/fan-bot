@@ -1,7 +1,6 @@
 require('dotenv').config();
 const tmi = require("tmi.js");
 const FanHandler = require("./FanHandler");
-const messages = require("./messages");
 
 const options = {
   options: {

@@ -1,6 +1,6 @@
 const axios = require("axios");
 const messages = require("./messages");
-const { getRandomMessage, betweenOneAndFourMinutes } = require("./helpers");
+const { getRandomMessage, randomMinRange } = require("./helpers");
 
 class FanHandler {
   constructor(tmiClient) {
@@ -64,15 +64,18 @@ class FanHandler {
   createMessageTimeout(ms) {
     this.messageTimeout = setTimeout(() => {
       this.sendRandomMessage();
-
-      const newTimeoutMs = betweenOneAndFourMinutes();
+      const FOUR_MINUTES_IN_SECONDS = 240;
+      const TEN_MINUTES_IN_SECONDS = 600;
+      const newTimeoutMs = randomMinRange(FOUR_MINUTES_IN_SECONDS, TEN_MINUTES_IN_SECONDS);
       this.createMessageTimeout(newTimeoutMs);
     }, ms);
   }
 
   startMessenger() {
     console.log('Starting messenger');
-    const newTimeoutMs = betweenOneAndFourMinutes();
+    const FOUR_MINUTES_IN_SECONDS = 240;
+    const TEN_MINUTES_IN_SECONDS = 600;
+    const newTimeoutMs = randomMinRange(FOUR_MINUTES_IN_SECONDS, TEN_MINUTES_IN_SECONDS);
     this.createMessageTimeout(newTimeoutMs);
   }
 

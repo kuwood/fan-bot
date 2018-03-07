@@ -1,5 +1,6 @@
-function betweenOneAndFourMinutes() {
-  return Math.floor(Math.random() * (241 - 60) + 60) * 1000;
+function randomMinRange(min, max) {
+  const exclusiveMax = max + 1;
+  return Math.floor(Math.random() * (exclusiveMax - min) + min) * 1000;
 }
 
 function getRandomMessage(messages) {
@@ -9,6 +10,6 @@ function getRandomMessage(messages) {
 }
 
 module.exports = {
-  betweenOneAndFourMinutes,
+  randomMinRange,
   getRandomMessage
 };
