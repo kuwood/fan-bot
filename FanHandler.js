@@ -1,4 +1,6 @@
 const axios = require("axios");
+const messages = require("./messages");
+const { getRandomMessage, betweenOneAndFourMinutes } = require("./helpers");
 
 class FanHandler {
   constructor(tmiClient) {

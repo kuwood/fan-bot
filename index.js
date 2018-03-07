@@ -22,7 +22,7 @@ let fanHandler = new FanHandler(tmiClient);
 
 tmiClient.on("connected", (address, port) => {
   console.log('Fanbot has connected!');
-  tmiClient.action("ezpkk", "yoo! 80% of success is showing up!");
+  // tmiClient.action("ezpkk", "yoo! 80% of success is showing up!");
   fanHandler.startMessenger();
 });
 
@@ -32,13 +32,3 @@ tmiClient.on("disconnected", () => {
 });
 
 fanHandler.startLiveCheck();
-
-function betweenOneAndFourMinutes() {
-  return Math.floor(Math.random() * (241 - 60) + 60) * 1000;
-}
-
-function getRandomMessage() {
-  const totalMessages = messages.length;
-  const randomIndex = Math.floor(Math.random() * messages.length);
-  return randomIndex;
-}
