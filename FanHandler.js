@@ -56,7 +56,7 @@ class FanHandler {
 
   sendRandomMessage() {
     if (this.live && this.connected) {
-      const randomMessage = messages[getRandomMessage()];
+      const randomMessage = messages[getRandomMessage(messages)];
       this.client.action("ezpkk", randomMessage);
     }
   }
