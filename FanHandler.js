@@ -17,14 +17,16 @@ class FanHandler {
     axios.get(`https://api.twitch.tv/helix/streams?user_id=${channelId}`, options)
       .then(res => {
         if (res.data.data[0] && res.data.data[0].type === "live") {
-          console.log(res.data.data[0]);
           console.log('Streamer is live!');
-          this.connectClient();
+          console.log(res.data.data[0]);
+          if (!this.connected) {
+            this.client.connect();
+          }
           this.live = true;
         } else {
           console.log('Streamer is not live.');
           if (this.live) {
-            this.disconnectClient();
+            this.client.disconnect();
             this.live = false;
           }
         }  
@@ -44,12 +46,12 @@ class FanHandler {
     clearInterval(this.liveCheckInterval);
   }
 
-  connectClient() {
-    this.client.connect();
+  isNowConnected() {
+    this.connected = true;
   }
 
-  disconnectClient() {
-    this.client.disconnect();
+  isNowDisconnected() {
+    this.connected = false;
   }
 
   sendRandomMessage() {
