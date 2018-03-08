@@ -22,7 +22,7 @@ let fanHandler = new FanHandler(tmiClient);
 tmiClient.on("connected", (address, port) => {
   console.log('Fanbot has connected!');
   fanHandler.isNowConnected();
-  tmiClient.action("ezpkk", "yoo! 80% of success is showing up!");
+  tmiClient.say("ezpkk", "yoo! 80% of success is showing up!");
   fanHandler.startMessenger();
 });
 
